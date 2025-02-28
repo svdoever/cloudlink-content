@@ -1,3 +1,33 @@
+---
+name: Generic App
+description: A prompt to create a generic single-file PWA with inline CSS and JavaScript
+authors:
+  - Serge van den Oever
+model:
+  api: chat
+sample:
+  name: Local To-Do List
+  purpose: |
+    A simple To-Do app there you can add, edit, complete, and delete tasks.
+    There is support for groups. There are initially a "General" and "Deleted" group that can't be removed.
+    When a task is deleted it is moved to the "Deleted" group. It is possible to restore a task from the "Deleted" group.
+    The App supports:
+    - drag and drop tasks between groups.
+    - move items up/down by dragging them up and down. The item is viusually dragged, and a horizontal line shows the new position.
+    - edit a task by clicking on it. A task has a title and a description.
+    - complete a task by clicking on the checkbox.
+    - delete a task by clicking on the trash icon.
+    - restore a task by clicking on the restore icon.
+    - add a new task by clicking on the "Add Task" button.
+    - set task priority using a dropdown menu.
+    - filter tasks by group.
+    - filter tasks by priority.
+    - filter tasks by completion status.
+    - filter tasks by search term.
+    - sort tasks by priority.
+    - sort tasks by creation date.
+---
+
 ### **Objective**  
 Create a **single HTML file** that functions as a Progressive Web App (PWA). No external files (CSS, JavaScript, or manifest) may be referenced—everything must be inlined. The manifest and favicon will be added later, so do **not** include them.
 
@@ -30,7 +60,7 @@ Below is a concise illustration that you can expand later if needed. Notice the 
   <meta charset="UTF-8">
   <meta name="description" content="Minimal single-file PWA example.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minimal Single-File PWA</title>
+  <title>{{name}}</title>
 
   <!-- Inline CSS -->
   <style>
@@ -57,7 +87,7 @@ Below is a concise illustration that you can expand later if needed. Notice the 
 </head>
 <body>
   <header>
-    <h1>Minimal Single-File PWA</h1>
+    <h1>{{name}}</h1>
     <p>No external resources. Mobile-first design.</p>
   </header>
 
@@ -79,7 +109,7 @@ Below is a concise illustration that you can expand later if needed. Notice the 
   </main>
 
   <footer>
-    <p>&copy; 2025 Minimal PWA</p>
+    <p>&copy; 2025 {{name}}</p>
   </footer>
 </body>
 </html>
@@ -87,5 +117,9 @@ Below is a concise illustration that you can expand later if needed. Notice the 
 
 ### **Key Takeaways**
 1. **No External Files:** Everything is inline (CSS and JS).  
-2. **Mobile-First & Responsive:** Uses simple media query for scaling layouts.  
+2. **Mobile-First & Responsive:** Uses simple media query for scaling layouts. Support a touch interface.
 3. **Accessible & Keyboard-Friendly:** Semantic HTML plus ARIA attributes and `tabindex` usage.
+4. **Output:** Only output the generated HTML file, so it can be easily copied.
+
+### **Purpose of the app**
+{{purpose}}

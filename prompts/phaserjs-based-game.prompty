@@ -1,0 +1,122 @@
+---
+name: PhaseJS Based Game
+description: A prompt to create a PhaserJS based single-file PWA with inline CSS and JavaScript
+authors:
+  - Serge van den Oever
+model:
+  api: chat
+sample:
+  name: Local To-Do List
+  purpose: |
+   Create the classic Tetris game with full gameplay and detailed mechanics:
+   The game is played on a grid of 10 columns by 20 rows.
+   There are seven tetromino pieces (I, O, T, S, Z, J, L), each with distinct shapes and all possible rotations.
+   Pieces spawn at the top of the grid and fall gradually, with the falling speed increasing as the player progresses through levels.
+   The player can control pieces using the keyboard:
+   Move left/right.
+   Rotate clockwise (and optionally counterclockwise).
+   Soft drop (accelerate the descent).
+   Hard drop (instantly drop the piece to the lowest valid position).
+   A preview window displays the next tetromino that will appear after the current piece locks in place.
+   Once a piece lands and locks into the grid, complete horizontal lines are cleared:
+   Clearing one or multiple lines increases the score.
+   Bonus points are awarded for clearing multiple lines simultaneously.
+   As more lines are cleared, the game level increases and the falling speed of pieces accelerates.
+   The game ends if a new tetromino cannot spawn at the top of the grid due to existing blocks.
+   Additional features include:
+   Pause/resume functionality.
+   Restart option after a game over.
+   Visual effects for moving pieces, line clears, and level transitions.
+   Optional basic sound effects for piece movement, line clearing, and game over events.
+   Display of the current score and level on the screen.
+---
+
+### **Objective**
+
+Write a single-page, self-contained Phaser game that embeds all game logic, base64-encoded assets, and minimal external references. Use Phaser hosted on a CDN for easy setup and ensure the game runs entirely within one HTML file.
+References to manifest or favicon should be commented or omitted. The PWA must still register and run a service worker from within the file (e.g., using a blob technique).
+
+### **Key Requirements**
+
+1. **CDN Availability**
+   - Reference Phaser from a CDN (e.g., jsDelivr) instead of bundling it.
+2. **Small Game Footprint**
+   - Keep everything (logic, assets) in the HTML file.
+   - Use base64 data URIs for images.
+3. **Rich Feature Set**
+   - Demonstrate basic Phaser features like sprite loading, animation, input handling, or physics.
+4. **Community and Documentation**
+   - Leverage Phaser’s well-documented API and large community if needed.
+5. **2D Game Focused**
+   - Show a simple 2D scene, at least with a sprite and a basic update loop.
+6. **For mobile, tablet and desktop**
+   - Make the game controllable though touch on mobile and tablet, and using keyboard on desktop.
+7. **Explain**
+   - On the start screen explain how to control the game
+8. **Score and lives**
+   - If applicable to the game, have a score and lives
+9. **Leaderboard**
+   - If applicable to the game provide a leaderboard with high-scores and player names. Make it possible to enter a player name for the high-score
+
+### **Example Single-File Phaser Game**
+
+Below is an illustrative template. An LLM can expand this further, but this shows how to keep everything in **one** HTML file, with manifest/favicon omitted, will be injected on deployment.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{name}}</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+  </head>
+  <body>
+    <script>
+      // Game configuration
+      const config = {
+        type: Phaser.AUTO,
+        width: 800,
+        height: 600,
+        scene: {
+          preload: preload,
+          create: create,
+          update: update,
+        },
+      };
+
+      // Initialize the game
+      const game = new Phaser.Game(config);
+
+      function preload() {
+        // Load embedded assets via base64
+        this.load.image(
+          "player",
+          "data:image/png;base64,<base64-encoded-sprite>"
+        );
+      }
+
+      function create() {
+        // Add sprite to the scene
+        this.player = this.add.sprite(400, 300, "player");
+      }
+
+      function update() {
+        // Simple movement or other game logic
+        this.player.x += 1;
+      }
+    </script>
+  </body>
+</html>
+```
+
+### **Key Takeaways**
+
+1. **No External Files:** Everything is inline (CSS and JS).
+2. **Mobile-First & Responsive:** Uses simple media query for scaling layouts. Support a touch interface.
+3. **Base64-Encoding for Assets:** Convert images or other media to base64 before embedding.
+4. **Minimize Library Size:** Use the minified Phaser build from the CDN.
+5. **Code Organization:** Keep your Phaser setup, preload, create, and update methods well-structured.
+
+### **Purpose of the app**
+{{purpose}}
