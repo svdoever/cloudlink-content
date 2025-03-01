@@ -3,8 +3,13 @@ name: Generic App
 description: A prompt to create a generic single-file PWA with inline CSS and JavaScript
 authors:
   - Serge van den Oever
-model:
-  api: chat
+inputs:
+  name:
+    type: string
+    description: Name of the app
+  purpose:
+    type: string
+    description: Purpose of the app
 sample:
   name: Local To-Do List
   purpose: |
