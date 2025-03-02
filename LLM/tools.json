@@ -2,7 +2,7 @@
   {
     "name": "t3 chat",
     "description": "t3 chat by Theo",
-    "appSchema": "",
+    "appScheme": "",
     "webURL": "https://t3.chat",
     "authentication":"Unauthenticated, or Google",
     "models": "GPT-4o-mini and Gemini 2.0 Flash for free, more with paid account."
@@ -10,7 +10,7 @@
   {
     "name": "deepseek",
     "description": "The famous Chinese model",
-    "appSchema": "",
+    "appScheme": "deepseek://",
     "webURL": "https://chat.deepseek.com/",
     "authentication":"Unauthenticated, or Google",
     "models": "Deepseek model, with support for DeepThink (R1) and Search."
@@ -18,7 +18,7 @@
   {
     "name": "ChatGPT",
     "description": "ChatGPT by OpenAI",
-    "appSchema": "chatgpt://",
+    "appScheme": "chatgpt://",
     "webURL": "https://chat.openai.com/",
     "authentication":"Unauthenticated, or Google"
   }
