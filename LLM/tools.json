@@ -28,5 +28,12 @@
     "appScheme": "googlegemini://",
     "webURL": "https://gemini.google.com/app",
     "authentication":"Google"
+  },
+  {
+    "name": "Claude",
+    "description": "Claude by Anthropic. Famous for the 3.x Sonnet models that are really good at coding.",
+    "appScheme": "",
+    "webURL": "https://claude.ai",
+    "authentication":"Google or email"
   }
 ]
