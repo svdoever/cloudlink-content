@@ -21,5 +21,12 @@
     "appScheme": "chatgpt://",
     "webURL": "https://chat.openai.com/",
     "authentication":"Unauthenticated, or Google"
+  },
+  {
+    "name": "Gemini",
+    "description": "Gemini by Google",
+    "appScheme": "googlegemini://",
+    "webURL": "https://gemini.google.com/app",
+    "authentication":"Google"
   }
 ]
